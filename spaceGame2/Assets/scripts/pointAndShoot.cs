@@ -6,13 +6,15 @@ using UnityEngine;
 public class pointAndShoot : MonoBehaviour
 {
     private Vector3 target;
+
     public GameObject turret;
     public GameObject crosshairs;
     public GameObject bulletPrefab;
     public GameObject prefabClone;
-    public float bulletSpeed = 60.0f;
     public GameObject bulletstart;
 
+    public float bulletSpeed = 60.0f;
+    
     float timer = 0.0f;
     float cooldownTime = 0.8f;
 
@@ -60,19 +62,12 @@ public class pointAndShoot : MonoBehaviour
         prefabClone.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ); // bullet goes in direction of the mouse
         prefabClone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         Destroy(prefabClone, 1);
-        //while (prefabClone.transform.position < startPosition)
-        //{
-        //    Destroy(prefabClone);
-        //}
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject)
-        {
             Destroy(gameObject);
             Destroy(col.gameObject);
-        }
     }
 }
 
