@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class pointAndShoot : MonoBehaviour
 {
+
     private Vector3 target;
 
     public GameObject turret;
@@ -64,10 +65,6 @@ public class pointAndShoot : MonoBehaviour
         Destroy(prefabClone, 1);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-            Destroy(gameObject);
-            Destroy(col.gameObject);
-    }
+    
 }
 
