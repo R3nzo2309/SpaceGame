@@ -20,8 +20,6 @@ public class DestroyOnCollision : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
             Explode();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-            Cursor.visible = true;
         }
         void Explode()
         {

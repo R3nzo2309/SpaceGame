@@ -15,7 +15,7 @@ public class pointAndShoot : MonoBehaviour
     public GameObject bulletstart;
 
     public float bulletSpeed = 60.0f;
-    
+
     float timer = 0.0f;
     float cooldownTime = 0.8f;
 
@@ -34,7 +34,12 @@ public class pointAndShoot : MonoBehaviour
 
         Vector3 difference = target - turret.transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        turret.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+
+        if (Time.timeScale != 0)
+        {
+            turret.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        }
+        
 
         if (timer > cooldownTime)
         {
@@ -65,6 +70,5 @@ public class pointAndShoot : MonoBehaviour
         Destroy(prefabClone, 1);
     }
 
-    
-}
 
+}
