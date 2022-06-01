@@ -9,33 +9,47 @@ public class UI : MonoBehaviour
     public Sprite OneLives;
     public Sprite Empty;
 
-    public int imgNumberCount;
+    public SpriteRenderer spriteRenderer;
 
-    
+    public float imgNumberCount = 0;
+
+    public static bool gameIsPaused = false;
+    public GameObject LoseMenu;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject)
         {
+
             if (imgNumberCount == 0)
             {
-                GetComponent<Image>().sprite = Full;
+                GameObject.Find("/Canvas/player-info/health").GetComponent<Image>().sprite = TwoLives;
                 imgNumberCount++;
+                Destroy(collision.gameObject);
             }
-            if (imgNumberCount == 1)
+
+            else if (imgNumberCount == 1)
             {
-                GetComponent<Image>().sprite = TwoLives;
+                GameObject.Find("/Canvas/player-info/health").GetComponent<Image>().sprite = OneLives;
                 imgNumberCount++;
+                Destroy(collision.gameObject);
             }
-            if (imgNumberCount == 2)
+
+            else if (imgNumberCount == 2)
             {
-                GetComponent<Image>().sprite = OneLives;
-                imgNumberCount++;
+                GameObject.Find("/Canvas/player-info/health").GetComponent<Image>().sprite = Empty;
+                Destroy(collision.gameObject);
+                EndGame();
             }
-            if (imgNumberCount == 3)
-            {
-                GetComponent<Image>().sprite = Empty;
-                imgNumberCount = 0;
-            }
+        }
+        void EndGame()
+        {
+            LoseMenu.SetActive(true);
+            Time.timeScale = 0f;
+            AudioListener.pause = true;
+            gameIsPaused = true;
+            Cursor.visible = true;
         }
     }
 }
+

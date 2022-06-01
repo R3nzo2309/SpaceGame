@@ -18,6 +18,11 @@ public class pointAndShoot : MonoBehaviour
 
     float timer = 0.0f;
     float cooldownTime = 0.8f;
+    float ending = 0.0f;
+    float playTime = 100.0f;
+
+    public static bool gameIsPaused = false;
+    public GameObject pauseMenuUI;
 
 
     // Start is called before the first frame update
@@ -58,6 +63,8 @@ public class pointAndShoot : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
+
+        EndGame();
     }
 
 
@@ -70,5 +77,21 @@ public class pointAndShoot : MonoBehaviour
         Destroy(prefabClone, 1);
     }
 
+    void EndGame()
+    {
+        if(ending < playTime + 1)
+        {
+            ending += Time.deltaTime;
+        }
+
+        if(ending > playTime)
+        {
+            pauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            AudioListener.pause = true;
+            gameIsPaused = true;
+            Cursor.visible = true;
+        }
+    }
 
 }
