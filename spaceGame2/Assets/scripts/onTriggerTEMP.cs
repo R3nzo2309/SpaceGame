@@ -4,26 +4,47 @@ using UnityEngine;
 
 public class onTriggerTEMP : MonoBehaviour
 {
-    GameObject newTriggerObject;
 
-    void OnTriggerEnter(Collider triggerObject)
+    public string tagObjective;
+    private bool isOnTrigger = false;
+
+    private float timer = 0;
+    private float waitingTime = 5.0f;
+
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite square;
+
+    private void Start()
     {
-        if (triggerObject)
+        spriteRenderer = GameObject.Find("/wall").GetComponent<SpriteRenderer>();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(tagObjective))
         {
-            
-            trigger();
-            
-            //newTriggerObject = triggerObject.gameObject;
-
-            //access the newTriggerObjects script:
-            //newTriggerObject.GetComponent<playerMovement>().triggerExampleFunction();
+            isOnTrigger = true;
         }
     }
-    void trigger()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        isOnTrigger = false;
+        timer = 0;
+    }
+    private void Update()
+    {
+        if (isOnTrigger == true)
         {
-            Debug.Log("repairing");
+            if (Input.GetKey(KeyCode.E))
+            {
+                timer += Time.deltaTime;
+
+                if (timer >= waitingTime)
+                {
+                    Debug.Log("repaired");
+                    timer = 0;
+                    spriteRenderer.sprite = square;
+                }
+            }
         }
     }
 }
