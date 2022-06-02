@@ -11,14 +11,19 @@ public class onTriggerTEMP : MonoBehaviour
         if (triggerObject)
         {
             
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("repairing");
-            }
-            newTriggerObject = triggerObject.gameObject;
+            trigger();
+            
+            //newTriggerObject = triggerObject.gameObject;
 
             //access the newTriggerObjects script:
             //newTriggerObject.GetComponent<playerMovement>().triggerExampleFunction();
+        }
+    }
+    void trigger()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("repairing");
         }
     }
 }

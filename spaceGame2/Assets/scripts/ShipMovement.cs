@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
-    float speed = 3.0f;
-    float higher = 100.0f;
-    float lower = -100.0f;
-    float maxlow = -70.0f;
-    float maxhigh = 50.0f;
-    float secondlow = -71.0f;
-    float secondhigh = 51.0f;
+    private float speed = 3.0f;
+    private float higher = 100.0f;
+    private float lower = -100.0f;
+    private float maxlow = -70.0f;
+    private float maxhigh = 50.0f;
+    private float secondlow = -71.0f;
+    private float secondhigh = 51.0f;
 
 
-    void Start()
-    {
-    }
     void Update()
     {
         if (Input.GetKey(KeyCode.A))

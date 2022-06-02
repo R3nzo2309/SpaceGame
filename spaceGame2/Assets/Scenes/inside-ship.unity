@@ -1058,7 +1058,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1095778240}
         m_TargetAssemblyTypeName: sound, Assembly-CSharp
-        m_MethodName: saveVolumeButton
+        m_MethodName: SaveVolumeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

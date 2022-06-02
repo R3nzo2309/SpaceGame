@@ -11,7 +11,7 @@ public class sound : MonoBehaviour
 
     private void Start()
     {
-        loadValue();
+        LoadValue();
     }
 
     public void VolumeSlider(float volume)
@@ -19,16 +19,16 @@ public class sound : MonoBehaviour
         volumeTextUI.text = volume.ToString("0.0");
     }
 
-    public void saveVolumeButton()
+    public void SaveVolumeButton()
     {
         float volumevalue = volumeSlider.value;
         PlayerPrefs.SetFloat("VolumeValue", volumevalue);
-        loadValue();
+        LoadValue();
 
         Debug.Log("saved settings");
     }
 
-    void loadValue()
+    void LoadValue()
     {
         float volumeValue = PlayerPrefs.GetFloat("VolumeValue");
         volumeSlider.value = volumeValue;

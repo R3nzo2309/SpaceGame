@@ -16,22 +16,22 @@ public class mainMenu : MonoBehaviour
         {
             if (gameIsPaused)
             {
-                resume();
+                Resume();
             }
             else
             {
-                pause();
+                Pause();
             }
         }
     }
-    public void resume()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         AudioListener.pause = false;
         gameIsPaused = false;
     }
-    public void pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

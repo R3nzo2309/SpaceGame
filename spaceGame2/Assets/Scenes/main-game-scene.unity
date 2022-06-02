@@ -1498,7 +1498,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8260911863160584393, guid: 72893cf07e52b3743847213d6a67459d, type: 3}
   prefabClone: {fileID: 0}
   bulletstart: {fileID: 1937223526}
-  bulletSpeed: 60
   pauseMenuUI: {fileID: 0}
 --- !u!20 &519420031
 Camera:
@@ -5019,7 +5018,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1342950149}
         m_TargetAssemblyTypeName: sound, Assembly-CSharp
-        m_MethodName: saveVolumeButton
+        m_MethodName: SaveVolumeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

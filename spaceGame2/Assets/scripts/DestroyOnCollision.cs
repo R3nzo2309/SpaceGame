@@ -6,8 +6,8 @@ using UnityEngine;
 public class DestroyOnCollision : MonoBehaviour
 {
 
-    public GameObject fireworks;
-    public GameObject fireworksClone;
+    [SerializeField] private GameObject fireworks;
+    [SerializeField] private GameObject fireworksClone;
     ParticleSystem fireworksAll;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -21,13 +21,14 @@ public class DestroyOnCollision : MonoBehaviour
             Destroy(gameObject);
             Explode();
         }
-        void Explode()
-        {
-            fireworksAll.Play();
-            Destroy(fireworksClone, 0.5f);
-        }
+        
+    }
+    void Explode()
+    {
+        fireworksAll.Play();
+        Destroy(fireworksClone, 0.5f);
     }
 
-    
+
 
 }

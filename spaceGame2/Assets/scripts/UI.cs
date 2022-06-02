@@ -16,6 +16,13 @@ public class UI : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject LoseMenu;
 
+    private Image image;
+
+    private void Start()
+    {
+        image = GameObject.Find("/Canvas/player-info/health").GetComponent<Image>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject)
@@ -23,33 +30,33 @@ public class UI : MonoBehaviour
 
             if (imgNumberCount == 0)
             {
-                GameObject.Find("/Canvas/player-info/health").GetComponent<Image>().sprite = TwoLives;
+                image.sprite = TwoLives;
                 imgNumberCount++;
                 Destroy(collision.gameObject);
             }
 
             else if (imgNumberCount == 1)
             {
-                GameObject.Find("/Canvas/player-info/health").GetComponent<Image>().sprite = OneLives;
+                image.sprite = OneLives;
                 imgNumberCount++;
                 Destroy(collision.gameObject);
             }
 
             else if (imgNumberCount == 2)
             {
-                GameObject.Find("/Canvas/player-info/health").GetComponent<Image>().sprite = Empty;
+                image.sprite = Empty;
                 Destroy(collision.gameObject);
                 EndGame();
             }
         }
-        void EndGame()
-        {
-            LoseMenu.SetActive(true);
-            Time.timeScale = 0f;
-            AudioListener.pause = true;
-            gameIsPaused = true;
-            Cursor.visible = true;
-        }
+    }
+    void EndGame()
+    {
+        LoseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        AudioListener.pause = true;
+        gameIsPaused = true;
+        Cursor.visible = true;
     }
 }
 

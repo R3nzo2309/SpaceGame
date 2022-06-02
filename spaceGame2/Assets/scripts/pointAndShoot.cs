@@ -8,18 +8,19 @@ public class pointAndShoot : MonoBehaviour
 
     private Vector3 target;
 
-    public GameObject turret;
-    public GameObject crosshairs;
-    public GameObject bulletPrefab;
-    public GameObject prefabClone;
-    public GameObject bulletstart;
 
-    public float bulletSpeed = 60.0f;
+    [SerializeField] private GameObject turret;
+    [SerializeField] private GameObject crosshairs;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject prefabClone;
+    [SerializeField] private GameObject bulletstart;
 
-    float timer = 0.0f;
-    float cooldownTime = 0.8f;
-    float ending = 0.0f;
-    float playTime = 100.0f;
+    private float bulletSpeed = 60.0f;
+
+    private float timer = 0.0f;
+    private float cooldownTime = 0.8f;
+    private float ending = 0.0f;
+    private float playTime = 100.0f;
 
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
@@ -53,7 +54,7 @@ public class pointAndShoot : MonoBehaviour
                 float distance = difference.magnitude;
                 Vector2 direction = difference / distance;
                 direction.Normalize();
-                fireBullet(direction, rotationZ);
+                FireBullet(direction, rotationZ);
                 var startPosition = transform.GetComponent<Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z)); // gets the location where you click your mouse
                 Debug.Log(startPosition); // writes location of mouseclick in debug.log
                 timer = 0; // reset timer
@@ -68,7 +69,7 @@ public class pointAndShoot : MonoBehaviour
     }
 
 
-    void fireBullet(Vector2 direction, float rotationZ)
+    void FireBullet(Vector2 direction, float rotationZ)
     {
         prefabClone = Instantiate(bulletPrefab) as GameObject;
         prefabClone.transform.position = bulletstart.transform.position; // bullet starts here
