@@ -10,11 +10,16 @@ public class playerMovement : MonoBehaviour
     public Sprite playersLeftSide;
     public Sprite playerFront;
 
+    public Rigidbody2D rb;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //public void triggerExampleFunction()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        Debug.Log("repairing");
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
@@ -33,6 +38,11 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             GetComponent<SpriteRenderer>().sprite = playersBack;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            rb.AddForce(new Vector2(0, 2), ForceMode2D.Impulse);
         }
     }
 }
