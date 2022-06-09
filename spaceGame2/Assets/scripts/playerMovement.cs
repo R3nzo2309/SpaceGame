@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
-    private float speed = 4.0f;
+    private float speed = 6.0f;
     private bool showBack = false;
 
     public Sprite playersBack;
