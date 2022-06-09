@@ -10,6 +10,7 @@ TagManager:
   - lever4
   - lever5
   - ladder
+  - burststate
   layers:
   - Default
   - TransparentFX
