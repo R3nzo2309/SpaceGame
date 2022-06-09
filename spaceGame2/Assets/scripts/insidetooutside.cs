@@ -8,13 +8,14 @@ public class insidetooutside : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        while (SceneManager.GetActiveScene().isLoaded)
+
+        if (SceneManager.GetActiveScene().isLoaded)
         {
             if (Input.GetKey(KeyCode.G))
             {

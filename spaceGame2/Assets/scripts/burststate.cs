@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class burststate : MonoBehaviour
 {
+
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("burststate");
