@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class onTriggerTEMP : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class onTriggerTEMP : MonoBehaviour
     [SerializeField] private string lever5;
     [SerializeField] private string lever6;
     [SerializeField] private string lever7;
+    [SerializeField] private string lever8;
 
     private bool lever1Trigger = false;
     private bool lever2Trigger = false;
@@ -20,31 +22,23 @@ public class onTriggerTEMP : MonoBehaviour
     private bool lever5Trigger = false;
     private bool lever6Trigger = false;
     private bool lever7Trigger = false;
+    private bool lever8Trigger = false;
 
     private float timer = 0;
     private float waitingTime = 1.0f;
 
     private SpriteRenderer spriteRenderer;
-    private SpriteRenderer leverColor1;
-    private SpriteRenderer leverColor2;
-    private SpriteRenderer leverColor3;
-    private SpriteRenderer leverColor4;
-    private SpriteRenderer leverColor5;
-    private SpriteRenderer leverColor6;
-    private SpriteRenderer leverColor7;
+    [SerializeField] private SpriteRenderer leverColor1;
+    [SerializeField] private SpriteRenderer leverColor2;
+    [SerializeField] private SpriteRenderer leverColor3;
+    [SerializeField] private SpriteRenderer leverColor4;
+    [SerializeField] private SpriteRenderer leverColor5;
+    [SerializeField] private SpriteRenderer leverColor6;
+    [SerializeField] private SpriteRenderer leverColor7;
+    [SerializeField] private SpriteRenderer leverColor8;
     [SerializeField] private Sprite backgroundChange;
 
-    private void Start()
-    {
-        spriteRenderer = GameObject.Find("/wall").GetComponent<SpriteRenderer>();
-        leverColor1 = GameObject.Find("/lever1 (lights)/circle").GetComponent<SpriteRenderer>();
-        leverColor2 = GameObject.Find("/lever2 (lights)/circle").GetComponent<SpriteRenderer>();
-        leverColor3 = GameObject.Find("/lever3 (lights)/circle").GetComponent<SpriteRenderer>();
-        leverColor4 = GameObject.Find("/lever4 (lights)/circle").GetComponent<SpriteRenderer>();
-        leverColor5 = GameObject.Find("/lever5 (lights)/circle").GetComponent<SpriteRenderer>();
-        leverColor6 = GameObject.Find("/lever6 (medic)/circle").GetComponent<SpriteRenderer>();
-        leverColor7 = GameObject.Find("/lever7 (medic)/circle").GetComponent<SpriteRenderer>();
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(lever1))
@@ -74,6 +68,10 @@ public class onTriggerTEMP : MonoBehaviour
         if (collision.gameObject.CompareTag(lever7))
         {
             lever7Trigger = true;
+        }
+        if (collision.gameObject.CompareTag(lever8))
+        {
+            lever8Trigger = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -106,14 +104,22 @@ public class onTriggerTEMP : MonoBehaviour
         {
             lever7Trigger = false;
         }
+        if (collision.gameObject.CompareTag(lever8))
+        {
+            lever8Trigger = false;
+        }
         timer = 0;
     }
     private void Update()
     {
         if (leverColor1.color == Color.green && leverColor2.color == Color.green && leverColor3.color == Color.green && leverColor4.color == Color.green && leverColor5.color == Color.green)
         {
-            Debug.Log("repaired 5 levers");
-            //spriteRenderer.sprite = backgroundChange;
+            Debug.Log("repaired lights");
+        }
+
+        if (leverColor6.color == Color.green && leverColor7.color == Color.green)
+        {
+            Debug.Log("repaired medic");
         }
 
         if (lever1Trigger == true)
@@ -212,6 +218,15 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     leverColor7.color = Color.green;
                 }
+            }
+        }
+        if (lever8Trigger == true)
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("entered cockpit");
+                leverColor8.color = Color.green;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
         }
     }
