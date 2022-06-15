@@ -7,12 +7,16 @@ public class Ladder : MonoBehaviour
     public bool climbing = false;
     public string ladder;
     private float cs = 10.0f;
-    private float speed = 4.0f;
+    private float decline = 8.0f;
     private Rigidbody2D rb;
+
+    private SpriteRenderer spriteRenderer;
+    public Sprite playersBack;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,7 +47,8 @@ public class Ladder : MonoBehaviour
 
             if (Input.GetKey(KeyCode.S))
             {
-                transform.Translate(new Vector3(0, -speed, 0) * Time.deltaTime);
+                transform.Translate(new Vector3(0, -decline, 0) * Time.deltaTime);
+                spriteRenderer.sprite = playersBack;
             }
         }
     }
