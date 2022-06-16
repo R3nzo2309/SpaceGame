@@ -17,7 +17,7 @@ public class playerMovement : MonoBehaviour
 
     private bool jump = false;
 
-
+    public Animator anim;
 
 
     
@@ -37,12 +37,22 @@ public class playerMovement : MonoBehaviour
             transform.Translate(new Vector3(speed, 0, 0) * Time.deltaTime);
             spriteRenderer.sprite = playersRightSide;
             showBack = false;
+            anim.SetFloat("speed", speed);
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetFloat("speed", 0);
         }
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(new Vector3(-speed, 0, 0) * Time.deltaTime);
             spriteRenderer.sprite = playersLeftSide;
             showBack = false;
+            anim.SetFloat("speed", -speed);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetFloat("speed", 0);
         }
         if (Input.GetKey(KeyCode.W))
         {
