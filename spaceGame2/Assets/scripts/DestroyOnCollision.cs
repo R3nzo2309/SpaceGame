@@ -9,6 +9,7 @@ public class DestroyOnCollision : MonoBehaviour
     [SerializeField] private GameObject fireworks;
     [SerializeField] private GameObject fireworksClone;
     ParticleSystem fireworksAll;
+    [SerializeField] private string ship;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,8 +22,21 @@ public class DestroyOnCollision : MonoBehaviour
             Destroy(gameObject);
             Explode();
         }
-        
+        if (collision.gameObject.CompareTag(ship))
+        {
+            lost();
+        }
+
+
     }
+
+    void lost()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Debug.Log("lost");
+        Cursor.visible = true;
+    }
+
     void Explode()
     {
         fireworksAll.Play();

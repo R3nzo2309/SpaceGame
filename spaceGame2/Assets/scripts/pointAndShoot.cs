@@ -65,7 +65,7 @@ public class pointAndShoot : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        EndGame();
+        //EndGame();
     }
 
 
@@ -78,21 +78,21 @@ public class pointAndShoot : MonoBehaviour
         Destroy(prefabClone, 1);
     }
 
-    void EndGame()
-    {
-        if(ending < playTime + 1)
-        {
-            ending += Time.deltaTime;
-        }
-
-        if(ending > playTime)
-        {
-            pauseMenuUI.SetActive(true);
-            Time.timeScale = 0f;
-            AudioListener.pause = true;
-            gameIsPaused = true;
-            Cursor.visible = true;
-        }
-    }
+    //void EndGame()
+    //{
+    //    if(ending < playTime + 1)
+    //    {
+    //        ending += Time.deltaTime;
+    //    }
+//
+    //    if(ending > playTime)
+    //    {
+    //        pauseMenuUI.SetActive(true);
+    //        Time.timeScale = 0f;
+    //        AudioListener.pause = true;
+    //        gameIsPaused = true;
+    //        Cursor.visible = true;
+    //    }
+    //}
 
 }

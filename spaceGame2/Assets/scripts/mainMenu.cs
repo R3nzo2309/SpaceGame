@@ -8,6 +8,9 @@ public class mainMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject settingMenuUI;
+
+    public Animator transition;
+
     
     // Start is called before the first frame update
     void Update()
@@ -41,7 +44,16 @@ public class mainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(levelIndex);
     }
     public void EndGame()
     {
@@ -54,4 +66,6 @@ public class mainMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
+
+    
 }

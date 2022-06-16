@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireworks: {fileID: 7487878395188080909, guid: 303e8edde3699e741a410c5d3c325b21, type: 3}
   fireworksClone: {fileID: 0}
+  ship: ship
