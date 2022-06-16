@@ -2204,7 +2204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519878278
 GameObject:
@@ -2554,7 +2554,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580104252
 GameObject:
@@ -3238,6 +3238,7 @@ GameObject:
   - component: {fileID: 740511822}
   - component: {fileID: 740511824}
   - component: {fileID: 740511823}
+  - component: {fileID: 740511825}
   m_Layer: 5
   m_Name: player-info
   m_TagString: Untagged
@@ -3304,6 +3305,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740511821}
   m_CullTransparentMesh: 1
+--- !u!114 &740511825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740511821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f15ca3d8c1b9ad4ab0ebc9403d03042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Full: {fileID: 21300000, guid: 9b29a8753a3db0f4cb5ef28f3004d6ed, type: 3}
+  TwoLives: {fileID: 21300000, guid: 25b399adad6f2cb47a3636869cc11921, type: 3}
+  OneLives: {fileID: 21300000, guid: 1712444c85dbe01459c29fff6c55da8b, type: 3}
+  Empty: {fileID: 21300000, guid: 3d652b2686cfa3547b96610b07e26423, type: 3}
+  spriteRenderer: {fileID: 0}
+  imgNumberCount: 0
+  LoseMenu: {fileID: 0}
 --- !u!1 &744638979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,7 +3772,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &998759243
 GameObject:
@@ -4364,7 +4384,7 @@ GameObject:
   - component: {fileID: 1102937626}
   m_Layer: 5
   m_Name: health
-  m_TagString: Untagged
+  m_TagString: burststate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
