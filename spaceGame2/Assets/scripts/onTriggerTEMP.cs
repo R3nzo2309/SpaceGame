@@ -137,6 +137,7 @@ public class onTriggerTEMP : MonoBehaviour
             Debug.Log("repaired lights");
             leverColor1.color = Color.blue;
         }
+        
 
         if (leverColor6.color == Color.green && leverColor7.color == Color.green)
         {
@@ -244,6 +245,7 @@ public class onTriggerTEMP : MonoBehaviour
         }
         if (lever8Trigger == true)
         {
+            if (leverColor1.color == Color.green && leverColor2.color == Color.green && leverColor3.color == Color.green && leverColor4.color == Color.green && leverColor5.color == Color.green && leverColor6.color == Color.green && leverColor7.color == Color.green)
 
             Destroy(holeOne);
             Destroy(holeTwo);
@@ -251,10 +253,14 @@ public class onTriggerTEMP : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("entered cockpit");
-                leverColor8.color = Color.green;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                if (Input.GetKey(KeyCode.E))
+                {
+                    Debug.Log("entered cockpit");
+                    leverColor8.color = Color.green;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                }
             }
+            
         }
     }
 }
