@@ -1138,9 +1138,9 @@ GameObject:
   - component: {fileID: 464374247}
   - component: {fileID: 464374246}
   - component: {fileID: 464374248}
-  - component: {fileID: 464374249}
   - component: {fileID: 464374250}
-  m_Layer: 3
+  - component: {fileID: 464374249}
+  m_Layer: 0
   m_Name: spaceShip
   m_TagString: ship
   m_Icon: {fileID: 0}
@@ -1238,8 +1238,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.018570447, y: -0.001085744}
-  m_Size: {x: 0.21928275, y: 0.5353336}
+  m_Offset: {x: -0.0662142, y: 0}
+  m_Size: {x: 0.29757178, y: 0.62000006}
   m_Direction: 0
 --- !u!114 &464374250
 MonoBehaviour:
@@ -2073,7 +2073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 693922175}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: turretholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3072,9 +3072,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1297605101}
   - component: {fileID: 1297605100}
+  - component: {fileID: 1297605102}
   m_Layer: 0
   m_Name: backgroundMusic
-  m_TagString: Untagged
+  m_TagString: GameMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3091,7 +3092,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0ac8804e799ae0c40b05b6bfc17b8edb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3189,6 +3190,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1297605102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297605099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a86c795e190e2f44818ca7561d2f5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1340757620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4228,7 +4241,7 @@ GameObject:
   - component: {fileID: 1847115164}
   - component: {fileID: 1847115165}
   - component: {fileID: 1847115166}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4675,7 +4688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937223527}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: bulletstart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4966,6 +4979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: levelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 7921835952714477989, guid: 77029de5100659e4abe441757a5cde22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77029de5100659e4abe441757a5cde22, type: 3}
 --- !u!224 &1992516480 stripped
@@ -5014,7 +5031,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2047777293
 GameObject:

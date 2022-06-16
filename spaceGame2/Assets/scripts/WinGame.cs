@@ -7,7 +7,7 @@ public class WinGame : MonoBehaviour
 {
 
     private float timer = 0;
-    private float win = 350f;
+    private float win = 10f;
 
     // Start is called before the first frame update
     void Start()

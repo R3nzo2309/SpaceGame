@@ -15,6 +15,7 @@ TagManager:
   - lever7
   - lever8
   - ship
+  - GameMusic
   layers:
   - Default
   - TransparentFX

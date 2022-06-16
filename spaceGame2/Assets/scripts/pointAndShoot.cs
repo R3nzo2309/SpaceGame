@@ -19,8 +19,8 @@ public class pointAndShoot : MonoBehaviour
 
     private float timer = 0.0f;
     private float cooldownTime = 0.8f;
-    private float ending = 0.0f;
-    private float playTime = 100.0f;
+    //private float ending = 0.0f;
+    //private float playTime = 100.0f;
 
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
