@@ -40,15 +40,11 @@ public class onTriggerTEMP : MonoBehaviour
 
 
     [SerializeField] private SpriteRenderer holeOne;
-    [SerializeField] private SpriteRenderer holeTwo;
-    [SerializeField] private SpriteRenderer holeThree;
 
 
     private void Start()
     {
-        holeOne = GameObject.Find("hole-1").GetComponent<SpriteRenderer>();
-        holeTwo = GameObject.Find("hole-2").GetComponent<SpriteRenderer>();
-        holeThree = GameObject.Find("hole-3").GetComponent<SpriteRenderer>();
+        holeOne = GameObject.Find("better_damage_in_spaceship").GetComponent<SpriteRenderer>();
     }
 
 
@@ -248,8 +244,6 @@ public class onTriggerTEMP : MonoBehaviour
             if (leverColor1.color == Color.green && leverColor2.color == Color.green && leverColor3.color == Color.green && leverColor4.color == Color.green && leverColor5.color == Color.green && leverColor6.color == Color.green && leverColor7.color == Color.green)
 
             Destroy(holeOne);
-            Destroy(holeTwo);
-            Destroy(holeThree);
 
             if (Input.GetKey(KeyCode.E))
             {
