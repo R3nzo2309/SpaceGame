@@ -14,7 +14,7 @@ TagManager:
   - lever6
   - lever7
   - lever8
-  - ship
+  - PlayerInfo
   layers:
   - Default
   - TransparentFX
