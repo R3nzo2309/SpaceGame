@@ -13,6 +13,7 @@ public class playerMovement : MonoBehaviour
     public Sprite playerFront;
 
     public Rigidbody2D rb;
+    public AudioSource steps;
     private SpriteRenderer spriteRenderer;
 
     private bool jump = false;
@@ -25,6 +26,7 @@ public class playerMovement : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        steps = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,10 +40,16 @@ public class playerMovement : MonoBehaviour
             spriteRenderer.sprite = playersRightSide;
             showBack = false;
             anim.SetFloat("speed", speed);
+            steps.UnPause();
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
             anim.SetFloat("speed", 0);
+            steps.Pause();
+        }
+        else
+        {
+            steps.Pause();
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -49,10 +57,12 @@ public class playerMovement : MonoBehaviour
             spriteRenderer.sprite = playersLeftSide;
             showBack = false;
             anim.SetFloat("speed", -speed);
+            steps.UnPause();
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
             anim.SetFloat("speed", 0);
+            steps.Pause();
         }
         if (Input.GetKey(KeyCode.W))
         {

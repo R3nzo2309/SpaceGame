@@ -47,6 +47,11 @@ public class mainMenu : MonoBehaviour
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
+    public void Retry()
+    {
+        SceneManager.LoadScene("main-game-scene");
+    }
+
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("start");
