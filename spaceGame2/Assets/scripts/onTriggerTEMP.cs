@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class onTriggerTEMP : MonoBehaviour
 {
@@ -42,11 +43,13 @@ public class onTriggerTEMP : MonoBehaviour
 
     [SerializeField] private GameObject lostSignal;
     [SerializeField] private GameObject Damage;
-
+    private Animator Lamin;
+    private LightFlicking lightanim;
 
     private void Start()
     {
         sr = GameObject.FindWithTag("background").GetComponent<SpriteRenderer>();
+        lightanim = GameObject.FindGameObjectWithTag("LightFlick").GetComponent<LightFlicking>();
     }
 
 
@@ -134,6 +137,7 @@ public class onTriggerTEMP : MonoBehaviour
         {
             sr.sprite = lightsOn;
             lostSignal.SetActive(false);
+            lightanim.StopAnima();
         }
 
         if(medic1 && medic2)
@@ -153,6 +157,7 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever1"));
                     light1 = true;
+                    lightanim.LFlicking();
                 }
             }
         }
@@ -168,6 +173,7 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever2"));
                     light2 = true;
+                    lightanim.LFlicking();
                 }
             }
         }
@@ -183,6 +189,7 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever3"));
                     light3 = true;
+                    lightanim.LFlicking();
                 }
             }
         }
@@ -198,6 +205,7 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever4"));
                     light4 = true;
+                    lightanim.LFlicking();
                 }
             }
         }
@@ -213,6 +221,7 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever5"));
                     light5 = true;
+                    lightanim.LFlicking();
                 }
             }
         }

@@ -19,6 +19,8 @@ TagManager:
   - GameMusic
   - ScreenShake
   - background
+  - LightFlick
+  - infoText
   layers:
   - Default
   - TransparentFX

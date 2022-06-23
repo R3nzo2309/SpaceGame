@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
-{
+{ 
     public Sprite Full;
     public Sprite TwoLives;
     public Sprite OneLives;
@@ -94,9 +94,9 @@ public class UI : MonoBehaviour
         gameIsPaused = true;
         Cursor.visible = true;
     }
-    private void Update()
+    internal void ChangeText()
     {
-       
+        
     }
 }
 
