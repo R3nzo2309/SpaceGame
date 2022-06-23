@@ -42,13 +42,9 @@ public class playerMovement : MonoBehaviour
             anim.SetFloat("speed", speed);
             steps.UnPause();
         }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            anim.SetFloat("speed", 0);
-            steps.Pause();
-        }
         else
         {
+            anim.SetFloat("speed", 0);
             steps.Pause();
         }
         if (Input.GetKey(KeyCode.A))
