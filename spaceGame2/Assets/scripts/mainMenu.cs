@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class mainMenu : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class mainMenu : MonoBehaviour
 
     public Animator transition;
 
-    
+
     // Start is called before the first frame update
     void Update()
     {
@@ -47,9 +48,20 @@ public class mainMenu : MonoBehaviour
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("main-menu");
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+        AudioListener.pause = false;
+    }
+
     public void Retry()
     {
         SceneManager.LoadScene("main-game-scene");
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+        AudioListener.pause = false;
     }
 
     IEnumerator LoadLevel(int levelIndex)

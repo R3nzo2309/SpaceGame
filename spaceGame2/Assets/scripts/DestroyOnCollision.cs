@@ -11,6 +11,7 @@ public class DestroyOnCollision : MonoBehaviour
     ParticleSystem fireworksAll;
     [SerializeField] private string ship;
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         fireworksClone = Instantiate(fireworks);

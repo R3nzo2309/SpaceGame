@@ -16,6 +16,8 @@ TagManager:
   - lever8
   - ship
   - GameMusic
+  - ScreenShake
+  - background
   layers:
   - Default
   - TransparentFX

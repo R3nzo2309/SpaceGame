@@ -864,18 +864,8 @@ MonoBehaviour:
   lever6: lever6
   lever7: lever7
   lever8: lever8
-  leverColor1: {fileID: 0}
-  leverColor2: {fileID: 0}
-  leverColor3: {fileID: 0}
-  leverColor4: {fileID: 0}
-  leverColor5: {fileID: 0}
-  leverColor6: {fileID: 0}
-  leverColor7: {fileID: 0}
-  leverColor8: {fileID: 0}
   backgroundChange: {fileID: 0}
   holeOne: {fileID: 0}
-  holeTwo: {fileID: 0}
-  holeThree: {fileID: 0}
 --- !u!114 &1222629731
 MonoBehaviour:
   m_ObjectHideFlags: 0

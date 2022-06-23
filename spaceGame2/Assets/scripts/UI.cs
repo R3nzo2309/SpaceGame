@@ -17,17 +17,19 @@ public class UI : MonoBehaviour
     public GameObject LoseMenu;
 
     private Image image;
+    private ScreenShake shake;
 
     private void Start()
     {
         image = GameObject.Find("/Canvas/player-info/health").GetComponent<Image>();
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject)
         {
-
+            shake.CamShake();
             if (imgNumberCount == 0)
             {
                 image.sprite = TwoLives;
