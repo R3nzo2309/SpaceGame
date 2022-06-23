@@ -18,11 +18,13 @@ public class UI : MonoBehaviour
     public GameObject LoseMenu;
 
     private Image image;
+    private ScreenShake shake;
     private PlayerInfo playerInfo;
 
     private void Start()
     {
         image = GameObject.Find("/Canvas/player-info/health").GetComponent<Image>();
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
         playerInfo = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>();
         UpdateHealth();
     }
@@ -31,6 +33,27 @@ public class UI : MonoBehaviour
     {
         if (collision.gameObject)
         {
+            shake.CamShake();
+            if (imgNumberCount == 0)
+            {
+                image.sprite = TwoLives;
+                imgNumberCount++;
+                Destroy(collision.gameObject);
+            }
+
+            else if (imgNumberCount == 1)
+            {
+                image.sprite = OneLives;
+                imgNumberCount++;
+                Destroy(collision.gameObject);
+            }
+
+            else if (imgNumberCount == 2)
+            {
+                image.sprite = Empty;
+                Destroy(collision.gameObject);
+                EndGame();
+            }
             playerInfo.playerHealth -= 1;
             UpdateHealth();
             Destroy(collision.gameObject);

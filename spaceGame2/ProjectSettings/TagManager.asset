@@ -17,6 +17,8 @@ TagManager:
   - PlayerInfo
   - ship
   - GameMusic
+  - ScreenShake
+  - background
   layers:
   - Default
   - TransparentFX

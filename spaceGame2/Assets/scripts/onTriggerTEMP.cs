@@ -14,6 +14,7 @@ public class onTriggerTEMP : MonoBehaviour
     [SerializeField] private string lever6;
     [SerializeField] private string lever7;
     [SerializeField] private string lever8;
+    [SerializeField] private string background;
 
     private bool lever1Trigger = false;
     private bool lever2Trigger = false;
@@ -24,27 +25,28 @@ public class onTriggerTEMP : MonoBehaviour
     private bool lever7Trigger = false;
     private bool lever8Trigger = false;
 
+    private bool light1 = false;
+    private bool light2 = false;
+    private bool light3 = false;
+    private bool light4 = false;
+    private bool light5 = false;
+
+    private bool medic1 = false;
+    private bool medic2 = false;
+
     private float timer = 0;
     private float waitingTime = 1.0f;
 
-    private SpriteRenderer spriteRenderer;
-    [SerializeField] private SpriteRenderer leverColor1;
-    [SerializeField] private SpriteRenderer leverColor2;
-    [SerializeField] private SpriteRenderer leverColor3;
-    [SerializeField] private SpriteRenderer leverColor4;
-    [SerializeField] private SpriteRenderer leverColor5;
-    [SerializeField] private SpriteRenderer leverColor6;
-    [SerializeField] private SpriteRenderer leverColor7;
-    [SerializeField] private SpriteRenderer leverColor8;
-    [SerializeField] private Sprite backgroundChange;
+     private SpriteRenderer sr;
+    [SerializeField] private Sprite lightsOn;
 
-
-    [SerializeField] private SpriteRenderer holeOne;
+    [SerializeField] private GameObject lostSignal;
+    [SerializeField] private GameObject Damage;
 
 
     private void Start()
     {
-        holeOne = GameObject.Find("better_damage_in_spaceship").GetComponent<SpriteRenderer>();
+        sr = GameObject.FindWithTag("background").GetComponent<SpriteRenderer>();
     }
 
 
@@ -128,17 +130,15 @@ public class onTriggerTEMP : MonoBehaviour
     }
     private void Update()
     {
-        if (leverColor1.color == Color.green && leverColor2.color == Color.green && leverColor3.color == Color.green && leverColor4.color == Color.green && leverColor5.color == Color.green)
+        if(light1 && light2 && light3 && light4 && light5)
         {
-            Debug.Log("repaired lights");
-            leverColor1.color = Color.blue;
+            sr.sprite = lightsOn;
+            lostSignal.SetActive(false);
         }
-        
 
-        if (leverColor6.color == Color.green && leverColor7.color == Color.green)
+        if(medic1 && medic2)
         {
-            Debug.Log("repaired medic");
-            leverColor6.color = Color.blue;
+            Damage.SetActive(false);
         }
 
         if (lever1Trigger == true)
@@ -151,7 +151,8 @@ public class onTriggerTEMP : MonoBehaviour
                 {
                     Debug.Log("repaired lever 1");
                     timer = 0;
-                    leverColor1.color = Color.green;
+                    Destroy(GameObject.FindWithTag("lever1"));
+                    light1 = true;
                 }
             }
         }
@@ -165,7 +166,8 @@ public class onTriggerTEMP : MonoBehaviour
                 {
                     Debug.Log("repaired lever 2");
                     timer = 0;
-                    leverColor2.color = Color.green;
+                    Destroy(GameObject.FindWithTag("lever2"));
+                    light2 = true;
                 }
             }
         }
@@ -179,7 +181,8 @@ public class onTriggerTEMP : MonoBehaviour
                 {
                     Debug.Log("repaired lever 3");
                     timer = 0;
-                    leverColor3.color = Color.green;
+                    Destroy(GameObject.FindWithTag("lever3"));
+                    light3 = true;
                 }
             }
         }
@@ -193,7 +196,8 @@ public class onTriggerTEMP : MonoBehaviour
                 {
                     Debug.Log("repaired lever 4");
                     timer = 0;
-                    leverColor4.color = Color.green;
+                    Destroy(GameObject.FindWithTag("lever4"));
+                    light4 = true;
                 }
             }
         }
@@ -207,7 +211,8 @@ public class onTriggerTEMP : MonoBehaviour
                 {
                     Debug.Log("repaired lever 5");
                     timer = 0;
-                    leverColor5.color = Color.green;
+                    Destroy(GameObject.FindWithTag("lever5"));
+                    light5 = true;
                 }
             }
         }
@@ -221,7 +226,8 @@ public class onTriggerTEMP : MonoBehaviour
                 {
                     Debug.Log("repaired lever 6");
                     timer = 0;
-                    leverColor6.color = Color.green;
+                    Destroy(GameObject.FindWithTag("lever6"));
+                    medic1 = true;
                 }
             }
         }
@@ -235,26 +241,21 @@ public class onTriggerTEMP : MonoBehaviour
                 {
                     Debug.Log("repaired lever 7");
                     timer = 0;
-                    leverColor7.color = Color.green;
+                    Destroy(GameObject.FindWithTag("lever7"));
+                    medic2 = true;
                 }
             }
         }
         if (lever8Trigger == true)
         {
-            if (leverColor1.color == Color.green && leverColor2.color == Color.green && leverColor3.color == Color.green && leverColor4.color == Color.green && leverColor5.color == Color.green && leverColor6.color == Color.green && leverColor7.color == Color.green)
-
-            Destroy(holeOne);
-
             if (Input.GetKey(KeyCode.E))
             {
                 if (Input.GetKey(KeyCode.E))
                 {
                     Debug.Log("entered cockpit");
-                    leverColor8.color = Color.green;
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
                 }
             }
-            
         }
     }
 }
