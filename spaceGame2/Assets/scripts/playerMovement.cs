@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
-    private float speed = 6.0f;
+    private float speed = 8.0f;
     private bool showBack = false;
 
     public Sprite playersBack;
@@ -34,26 +34,35 @@ public class playerMovement : MonoBehaviour
     {
         spriteRenderer.sprite = playerFront;
 
+        if (Input.GetKey(KeyCode.D) && jump == true)
+        {
+            steps.UnPause();
+        }
+
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(new Vector3(speed, 0, 0) * Time.deltaTime);
             spriteRenderer.sprite = playersRightSide;
             showBack = false;
             anim.SetFloat("speed", speed);
-            steps.UnPause();
         }
         else
         {
             anim.SetFloat("speed", 0);
             steps.Pause();
         }
+
+        if (Input.GetKey(KeyCode.A) && jump == true)
+        {
+            steps.UnPause();
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(new Vector3(-speed, 0, 0) * Time.deltaTime);
             spriteRenderer.sprite = playersLeftSide;
             showBack = false;
             anim.SetFloat("speed", -speed);
-            steps.UnPause();
         }
         if (Input.GetKeyUp(KeyCode.A))
         {

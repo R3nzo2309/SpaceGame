@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class pointAndShoot : MonoBehaviour
 {
 
     private Vector3 target;
 
+    public AudioSource shooting;
 
     [SerializeField] private GameObject turret;
     [SerializeField] private GameObject crosshairs;
@@ -58,6 +60,7 @@ public class pointAndShoot : MonoBehaviour
                 var startPosition = transform.GetComponent<Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z)); // gets the location where you click your mouse
                 Debug.Log(startPosition); // writes location of mouseclick in debug.log
                 timer = 0; // reset timer
+                shooting.Play();
             }
         }
         if (timer < cooldownTime + 1)

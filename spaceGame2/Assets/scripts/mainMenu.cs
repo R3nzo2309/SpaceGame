@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Video;
 
 public class mainMenu : MonoBehaviour
 {
@@ -12,6 +10,14 @@ public class mainMenu : MonoBehaviour
 
     public Animator transition;
 
+    public AudioSource click;
+
+    private WinGame wingame;
+
+    private void Start()
+    {
+        wingame = GetComponent<WinGame>();
+    }
 
     // Start is called before the first frame update
     void Update()
@@ -46,6 +52,8 @@ public class mainMenu : MonoBehaviour
     public void PlayGame()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        UI.health = 0;
+        WinGame.timerOn = true;
     }
 
     public void GoToMainMenu()
@@ -62,6 +70,8 @@ public class mainMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         AudioListener.pause = false;
+        UI.health = 0;
+        WinGame.timerOn = true;
     }
 
     IEnumerator LoadLevel(int levelIndex)
@@ -84,5 +94,9 @@ public class mainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Clicked()
+    {
+        click.Play();
+    }
     
 }

@@ -14,14 +14,14 @@ public class DeployKomeet : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject a = Instantiate(komeetPrefab) as GameObject;
-        a.transform.position = new Vector2(15, Random.Range(-5, 5));
+        a.transform.position = new Vector2(20, Random.Range(-4.5f, 4.5f));
     }
 
     IEnumerator AstroidWave()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.2f);
             SpawnEnemy();
         }
     }
