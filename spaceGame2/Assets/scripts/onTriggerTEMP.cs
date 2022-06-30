@@ -37,19 +37,14 @@ public class onTriggerTEMP : MonoBehaviour
     private float timer = 0;
     private float waitingTime = 1.0f;
 
-     private SpriteRenderer sr;
     [SerializeField] private Sprite lightsOn;
 
     [SerializeField] private GameObject lostSignal;
     [SerializeField] private GameObject Damage;
+    public LightFlicker lightanim;
 
-
-    private void Start()
-    {
-        sr = GameObject.FindWithTag("background").GetComponent<SpriteRenderer>();
-    }
-
-
+    public AudioSource lightSwitch;
+    public AudioSource medicSwitch;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(lever1))
@@ -132,8 +127,8 @@ public class onTriggerTEMP : MonoBehaviour
     {
         if(light1 && light2 && light3 && light4 && light5)
         {
-            sr.sprite = lightsOn;
             lostSignal.SetActive(false);
+            lightanim.LightOn();
         }
 
         if(medic1 && medic2)
@@ -153,6 +148,8 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever1"));
                     light1 = true;
+                    lightanim.LightBulb();
+                    lightSwitch.Play();
                 }
             }
         }
@@ -168,6 +165,8 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever2"));
                     light2 = true;
+                    lightanim.LightBulb();
+                    lightSwitch.Play();
                 }
             }
         }
@@ -183,6 +182,8 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever3"));
                     light3 = true;
+                    lightanim.LightBulb();
+                    lightSwitch.Play();
                 }
             }
         }
@@ -198,6 +199,8 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever4"));
                     light4 = true;
+                    lightanim.LightBulb();
+                    lightSwitch.Play();
                 }
             }
         }
@@ -213,6 +216,8 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever5"));
                     light5 = true;
+                    lightanim.LightBulb();
+                    lightSwitch.Play();
                 }
             }
         }
@@ -228,6 +233,7 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever6"));
                     medic1 = true;
+                    medicSwitch.Play();
                 }
             }
         }
@@ -243,6 +249,7 @@ public class onTriggerTEMP : MonoBehaviour
                     timer = 0;
                     Destroy(GameObject.FindWithTag("lever7"));
                     medic2 = true;
+                    medicSwitch.Play();
                 }
             }
         }
@@ -256,6 +263,11 @@ public class onTriggerTEMP : MonoBehaviour
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
                 }
             }
+        }
+
+        if (light1 && light2 && light3 && light4 && light5 && medic1 && medic2)
+        {
+            UI.health = 0;
         }
     }
 }

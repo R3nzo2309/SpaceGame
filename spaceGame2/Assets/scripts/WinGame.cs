@@ -5,19 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class WinGame : MonoBehaviour
 {
+    public float timer = 0;
+    private float win = 120f;
+    public static bool timerOn = true;
+    public AudioSource click;
 
-    private float timer = 0;
-    private float win = 50f;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (timerOn == true)
+        {
             if (timer <= win)
             {
                 timer += 1 * Time.deltaTime;
@@ -25,8 +27,11 @@ public class WinGame : MonoBehaviour
 
             if (timer >= win)
             {
-            WinGameScreen();
+                timer = 0;
+                timerOn = false;
+                WinGameScreen();
             }
+        }
     }
 
     public void WinGameScreen()
@@ -38,10 +43,16 @@ public class WinGame : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("main-game-scene");
+        timerOn = true;
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("main-menu");
+    }
+
+    public void Clicked()
+    {
+        click.Play();
     }
 }
