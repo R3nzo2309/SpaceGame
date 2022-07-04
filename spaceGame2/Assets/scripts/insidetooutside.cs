@@ -20,6 +20,7 @@ public class insidetooutside : MonoBehaviour
             if (Input.GetKey(KeyCode.G))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                DamageOverTime.timerCount = 0;
             }
             else if (Input.GetKey(KeyCode.G))
             {

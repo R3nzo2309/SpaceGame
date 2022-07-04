@@ -1,43 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DamageOverTime : MonoBehaviour
 {
-    private float timer = 0;
-    private float time = 5f;
-    private float timerCount = 0;
+    private float safeTime = 40;
+    private float almostTime = 0f;
     public GameObject LoseMenu;
 
     public static bool gameIsPaused = false;
     public bool timerOn = true;
+    public static float timerCount = 0;
 
     public AudioSource endmusic;
 
     public Text timeRemaining;
-
     void Update()
     {
-        if(timerOn == true)
+
+        timeRemaining.text = safeTime.ToString("incoming in: 0.0 sec");
+
+        if (timerOn == true)
         {
-            if (timer <= time)
+            if(timerCount == 0)
             {
-                timer += 1 * Time.deltaTime;
+                if (almostTime <= safeTime)
+                {
+                    safeTime -= 1 * Time.deltaTime;
+                }
+
+                if (almostTime >= safeTime)
+                {
+                    safeTime = 10;
+                    UI.health += 1;
+                    timerCount += 1;
+                }
             }
 
-            if (timer >= time)
+            else if(timerCount == 1)
             {
-                timer = 0;
-                UI.health += 1;
-                timerCount += 1;
+                if (almostTime <= safeTime)
+                {
+                    safeTime -= 1 * Time.deltaTime;
+                }
+
+                if (almostTime >= safeTime)
+                {
+                    safeTime = 5;
+                    UI.health += 1;
+                    timerCount = 0;
+                    Debug.Log("reset timercount");
+                }
             }
 
-            if (timerCount == 3)
+            if (UI.health == 3)
             {
                 EndGame();
-                timer = 0;
-                timerCount = 0;
+                safeTime = 0;
                 timerOn = false;
             }
         }

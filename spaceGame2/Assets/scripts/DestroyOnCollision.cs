@@ -7,7 +7,6 @@ public class DestroyOnCollision : MonoBehaviour
 {
 
     [SerializeField] private GameObject explosion;
-    ParticleSystem fireworksAll;
     [SerializeField] private string ship;
 
 

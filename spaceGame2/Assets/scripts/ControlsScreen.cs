@@ -5,11 +5,19 @@ using UnityEngine;
 public class ControlsScreen : MonoBehaviour
 {
     public GameObject controlsMenu;
-    public bool controlsOpen = true;
+    public static bool controlsOpen = true;
     // Start is called before the first frame update
     void Start()
     {
-        ControlsOpen();
+        if(controlsOpen == true)
+        {
+            ControlsOpen();
+        }
+        else if(controlsOpen == false)
+        {
+            ControlsClosed();
+        }
+        
     }
 
     // Update is called once per frame
