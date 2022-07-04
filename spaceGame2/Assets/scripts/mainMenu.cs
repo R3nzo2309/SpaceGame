@@ -12,13 +12,6 @@ public class mainMenu : MonoBehaviour
 
     public AudioSource click;
 
-    private WinGame wingame;
-
-    private void Start()
-    {
-        wingame = GetComponent<WinGame>();
-    }
-
     // Start is called before the first frame update
     void Update()
     {
@@ -71,7 +64,10 @@ public class mainMenu : MonoBehaviour
         gameIsPaused = false;
         AudioListener.pause = false;
         UI.health = 0;
+        WinGame.timer = 0f;
         WinGame.timerOn = true;
+        WinGame.win = 180f;
+        DamageOverTime.timerCount = 0;
     }
 
     IEnumerator LoadLevel(int levelIndex)

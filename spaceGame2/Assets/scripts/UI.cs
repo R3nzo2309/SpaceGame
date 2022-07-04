@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -21,12 +19,13 @@ public class UI : MonoBehaviour
 
     public AudioSource shipDamage;
     public AudioSource endmusic;
-
+    private GameObject music;
     private void Start()
     {
         image = GameObject.Find("/Canvas/player-info/health").GetComponent<Image>();
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
         UpdateHealthUI();
+        music = GameObject.FindGameObjectWithTag("GameMusic");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,7 +36,6 @@ public class UI : MonoBehaviour
             shipDamage.Play();
             TakeDamage();
             UpdateHealthUI();
-
             Destroy(collision.gameObject);
 
         }
@@ -88,11 +86,13 @@ public class UI : MonoBehaviour
     {
         LoseMenu.SetActive(true);
         Time.timeScale = 0f;
-        AudioListener.pause = true;
+        //AudioListener.pause = true;
+        music.SetActive(false);
         gameIsPaused = true;
         Cursor.visible = true;
         endmusic.Play();
         WinGame.timerOn = false;
+        DamageOverTime.timerCount = 0;
     }
 }
 

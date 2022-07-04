@@ -11,7 +11,7 @@ public class DontDestroy : MonoBehaviour
 
         if(soundObj.Length > 1 || SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         
 

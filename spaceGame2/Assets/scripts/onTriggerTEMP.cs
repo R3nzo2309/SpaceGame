@@ -34,6 +34,8 @@ public class onTriggerTEMP : MonoBehaviour
     private bool medic1 = false;
     private bool medic2 = false;
 
+    private bool healed = false;
+
     private float timer = 0;
     private float waitingTime = 1.0f;
 
@@ -261,13 +263,19 @@ public class onTriggerTEMP : MonoBehaviour
                 {
                     Debug.Log("entered cockpit");
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                    ControlsScreen.controlsOpen = false;
                 }
             }
         }
 
         if (light1 && light2 && light3 && light4 && light5 && medic1 && medic2)
         {
-            UI.health = 0;
+            if(healed == false)
+            {
+                UI.health = 0;
+                healed = true;
+                light1 = false;
+            }
         }
     }
 }

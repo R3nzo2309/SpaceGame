@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class WinGame : MonoBehaviour
 {
-    public float timer = 0;
-    private float win = 120f;
+    public static float timer = 0;
+    public static float win = 180f;
     public static bool timerOn = true;
     public AudioSource click;
+    private GameObject backgroundMusic;
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        backgroundMusic = GameObject.FindGameObjectWithTag("GameMusic");
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class WinGame : MonoBehaviour
                 timer = 0;
                 timerOn = false;
                 WinGameScreen();
+                backgroundMusic.SetActive(false);
             }
         }
     }
@@ -38,12 +41,19 @@ public class WinGame : MonoBehaviour
     {
         SceneManager.LoadScene("WinScene");
         Cursor.visible = true;
+        
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene("main-game-scene");
         timerOn = true;
+        SceneManager.LoadScene("main-game-scene");
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+        UI.health = 0;
+        timer = 0f;
+        win = 180f;
+        DamageOverTime.timerCount = 0;
     }
 
     public void MainMenu()

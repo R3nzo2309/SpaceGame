@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - lever1
+  - lever2
+  - lever3
+  - lever4
+  - lever5
+  - ladder
+  - burststate
+  - lever6
+  - lever7
+  - lever8
+  - PlayerInfo
+  - ship
+  - GameMusic
+  - ScreenShake
+  - background
+  - infoText
+  - Controls
   layers:
   - Default
   - TransparentFX
