@@ -4,20 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 5dd6662b714d7774c954427d65572083
-  - enabled: 1
-    path: Assets/Scenes/main-menu.unity
-    guid: ca3ba5d3f19da444c95b17e632c2a8e0
-  - enabled: 1
-    path: Assets/Scenes/main-game-scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/inside-ship.unity
-    guid: eca02809f8febab45a35af9a967102c8
-  - enabled: 1
-    path: Assets/Scenes/WinScene.unity
-    guid: 5561a98a6adc93646b096ef3f8be25aa
+  m_Scenes: []
   m_configObjects: {}

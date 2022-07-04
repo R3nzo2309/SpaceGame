@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:spaceGame2/Assets/valuable testing.cs.meta
+guid: d3124d00dc4240d4ca6b609dac4c7120
+=======
 guid: b003a2ef30ed74b4e92c2a79c4441af1
+>>>>>>> 562fe7b3fa6cea09ac3beaf4a2ae2eb96e1e1474:spaceGame2/Assets/scripts/BreakingInterior.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
